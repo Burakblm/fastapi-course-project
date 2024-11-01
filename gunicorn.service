@@ -1,0 +1,14 @@
+[Unit]
+Description=demo fastapi service
+After=network.target
+
+[Service]
+User=burakbulama
+Group=burakbulama
+WorkingDirectory=/home/burakbulama/fastapi-course-project/
+Environment="PATH=/home/burakbulama/fastapi-course-project/venv/bin"
+EnvironmentFile=/home/burakbulama/fastapi-course-project/app/.env
+ExecStart=/home/burakbulama/fastapi-course-project/venv/bin/gunicorn -w 2 -k uvicorn.workers.UvicornWorker app.main:app --bind 0.0.0.0:8000
+
+[Install]
+WantedBy=multi-user.target
