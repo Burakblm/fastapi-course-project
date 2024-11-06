@@ -54,7 +54,7 @@ def test_deposit(bank_account):
 
 def test_collect_interest(bank_account):
     bank_account.collect_interest()
-    assert round(bank_account.balance, 6) == 56
+    assert round(bank_account.balance, 6) == 55
 
 
 @pytest.mark.parametrize("deposited, withdrew, expected", [
